@@ -1,0 +1,244 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f4f7fb;
+  --foreground: #0f172a;
+  --muted: #64748b;
+  --border: #dbe3ef;
+  --surface: #ffffff;
+  --surface-elevated: #ffffff;
+  --accent: #0d9488;
+  --accent-secondary: #f59e0b;
+  --accent-foreground: #ffffff;
+  --glow: rgba(13, 148, 136, 0.12);
+  --shadow: rgba(15, 23, 42, 0.08);
+  --mesh-1: #e0f2fe;
+  --mesh-2: #ccfbf1;
+  --mesh-3: #fef3c7;
+}
+
+.dark {
+  --background: #0a0f16;
+  --foreground: #e8eef5;
+  --muted: #94a3b8;
+  --border: #1e293b;
+  --surface: #111827;
+  --surface-elevated: #162032;
+  --accent: #2dd4bf;
+  --accent-secondary: #fb923c;
+  --accent-foreground: #042f2e;
+  --glow: rgba(45, 212, 191, 0.15);
+  --shadow: rgba(0, 0, 0, 0.35);
+  --mesh-1: #0c4a6e;
+  --mesh-2: #134e4a;
+  --mesh-3: #78350f;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-accent: var(--accent);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-glow: var(--glow);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  min-height: 100vh;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+code {
+  font-family: var(--font-geist-mono), monospace;
+}
+
+.page-mesh {
+  background:
+    radial-gradient(ellipse 80% 50% at 20% -10%, var(--mesh-1), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 90% 10%, var(--mesh-2), transparent 50%),
+    radial-gradient(ellipse 50% 30% at 50% 100%, var(--mesh-3), transparent 45%),
+    var(--background);
+}
+
+.page-flow {
+  min-height: 100vh;
+}
+
+.custom-cursor-active,
+.custom-cursor-active * {
+  cursor: none !important;
+}
+
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .custom-cursor-active,
+  .custom-cursor-active * {
+    cursor: auto !important;
+  }
+}
+
+.interactive-link {
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.interactive-link:hover {
+  color: var(--accent);
+}
+
+.interactive-btn {
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+}
+
+.interactive-btn:hover {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.nav-resume-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--border));
+  background: color-mix(in srgb, var(--accent) 8%, var(--surface));
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.nav-resume-btn:hover {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 15%, var(--surface));
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.glass-card {
+  border: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  box-shadow: 0 8px 32px -24px var(--shadow);
+  backdrop-filter: blur(12px);
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.glass-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 25%, var(--border));
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px -24px var(--glow);
+}
+
+.dark .glass-card {
+  background: color-mix(in srgb, var(--surface) 85%, transparent);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 70%, #0891b2));
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--accent-foreground);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  box-shadow: 0 8px 24px -8px var(--glow);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--foreground);
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-outline:hover {
+  border-color: color-mix(in srgb, var(--accent) 50%, var(--border));
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.skill-pill {
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--surface-elevated), var(--surface));
+  box-shadow: 0 2px 8px -4px var(--shadow);
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill-pill:hover {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -10px var(--glow);
+}
+
+.dsa-card {
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--surface);
+  box-shadow: 0 4px 24px -12px var(--shadow);
+}
+
+.difficulty-easy {
+  color: #00b8a3;
+}
+
+.difficulty-medium {
+  color: #ffc01e;
+}
+
+.difficulty-hard {
+  color: #ff375f;
+}
+
+.heatmap-0 { background: color-mix(in srgb, var(--border) 40%, transparent); }
+.heatmap-1 { background: color-mix(in srgb, #22c55e 25%, var(--surface)); }
+.heatmap-2 { background: color-mix(in srgb, #22c55e 45%, var(--surface)); }
+.heatmap-3 { background: color-mix(in srgb, #22c55e 65%, var(--surface)); }
+.heatmap-4 { background: #22c55e; }
+
+.leetcode-glass-card {
+  border: 1px solid color-mix(in srgb, var(--border) 55%, transparent);
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  box-shadow: 0 8px 32px -24px var(--shadow);
+  backdrop-filter: blur(14px);
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.dark .leetcode-glass-card {
+  background: color-mix(in srgb, var(--surface) 82%, transparent);
+}
+
+.leetcode-stat-card {
+  box-shadow: 0 8px 28px -20px var(--shadow);
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}

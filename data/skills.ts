@@ -1,0 +1,28 @@
+import type { Skill } from "@/types";
+
+export const skills: Skill[] = [
+  { name: "Java", category: "Languages" },
+  { name: "Python", category: "Languages" },
+  { name: "JavaScript", category: "Languages" },
+  { name: "TypeScript", category: "Languages" },
+  { name: "C++", category: "Languages" },
+  { name: "Spring Boot", category: "Backend" },
+  { name: "Node.js", category: "Backend" },
+  { name: "Express.js", category: "Backend" },
+  { name: "RESTful API Design", category: "Backend" },
+  { name: "JWT Authentication", category: "Backend" },
+  { name: "React.js", category: "Frontend" },
+  { name: "Next.js", category: "Frontend" },
+  { name: "HTML5", category: "Frontend" },
+  { name: "CSS3", category: "Frontend" },
+  { name: "PostgreSQL", category: "Data" },
+  { name: "MongoDB", category: "Data" },
+  { name: "Prisma ORM", category: "Data" },
+  { name: "SQL", category: "Data" },
+  { name: "Docker", category: "DevOps" },
+  { name: "Git", category: "DevOps" },
+  { name: "GitHub Actions", category: "DevOps" },
+  { name: "JUnit", category: "Testing" },
+  { name: "Postman", category: "Testing" },
+  { name: "Agile/Scrum", category: "Process" },
+];
