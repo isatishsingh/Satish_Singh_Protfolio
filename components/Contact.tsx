@@ -11,7 +11,7 @@ export function Contact() {
     >
       <SectionHeading
         title="Contact"
-        subtitle="Open to internships, collaborations, and backend or full-stack roles."
+        subtitle="Open to Full-time Roles, collaborations, and Backend or Full-Stack Opportunities."
         align="center"
       />
 
