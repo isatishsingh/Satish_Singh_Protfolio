@@ -47,7 +47,7 @@ export function Projects() {
               ))}
             </div>
 
-            <div className="mt-auto flex flex-wrap gap-3 pt-8">
+            <div className="mt-auto flex flex-wrap gap-4 pt-8">
               <a
                 href={project.githubUrl}
                 target="_blank"

@@ -4,7 +4,7 @@ import "./globals.css";
 import { CustomCursor } from "@/components/CustomCursor";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { QueryProvider } from "@/components/providers/QueryProvider";
+import { LeetcodeStoreProvider } from "@/components/providers/LeetcodeStoreProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,12 +32,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-background font-sans text-foreground antialiased`}
       >
-        <QueryProvider>
+        <LeetcodeStoreProvider>
           <CustomCursor />
           <Header />
           <main>{children}</main>
           <Footer />
-        </QueryProvider>
+        </LeetcodeStoreProvider>
       </body>
     </html>
   );

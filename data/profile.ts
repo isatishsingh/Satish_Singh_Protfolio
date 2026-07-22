@@ -4,7 +4,7 @@ export const profile: Profile = {
   name: "Satish Singh",
   role: "Software Engineer",
   intro:
-    "I build reliable full-stack applications with clean APIs, thoughtful UX, and production-ready engineering practices.",
+    "I build scalable full-stack applications with a backend-first approach, clean APIs, intuitive user experiences, and maintainable code",
   about:
-    "Software engineer focused on backend systems, REST APIs, and modern web interfaces. I enjoy turning complex requirements into maintainable code — from JWT-secured services and database design to responsive React frontends. Currently pursuing my MCA while sharpening DSA skills and shipping real projects.",
+    "Software Engineer with a strong foundation in full-stack development, building modern web applications using the MERN stack and developing scalable backend services with Java, Spring Boot, Node.js, and Express.js. Recently completed an MCA with strong computer science fundamentals and problem-solving skills, enabling me to build reliable software and contribute effectively from day one.",
 };

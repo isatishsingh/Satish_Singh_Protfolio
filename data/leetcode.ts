@@ -16,7 +16,7 @@ export const leetcodeStats: LeetCodeStats = {
   activeDays: 132,
   maxStreak: 28,
   badges: 3,
-  location: "India",
+  location: "Pune, India",
   education: "Savitribai Phule Pune University",
   skillTags: ["C++", "Java", "JavaScript", "HTML", "CSS"],
 };

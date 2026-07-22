@@ -20,7 +20,7 @@ export const projects: Project[] = [
       "Designed normalized PostgreSQL schemas, containerized with Docker",
     ],
     githubUrl: "https://github.com/isatishsingh",
-    liveUrl: "TODO_FILL_IN",
+    liveUrl: "https://capitalbridgeapp.vercel.app/",
   },
   {
     title: "Tourpedia",

@@ -2,7 +2,7 @@ import type { Experience } from "@/types";
 
 export const experience: Experience[] = [
   {
-    role: "React.js Developer Intern",
+    role: "React.js Developer",
     company: "LongSwitch Software Solution Pvt. Ltd.",
     location: "Surat, India",
     startDate: "Jan 2024",

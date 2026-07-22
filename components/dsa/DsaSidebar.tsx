@@ -10,7 +10,7 @@ export function DsaSidebar() {
 
   return (
     <aside className="dsa-card sticky top-24 p-6">
-      <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-2xl bg-gradient-to-br from-accent-secondary/20 to-accent/20 text-3xl font-bold text-accent">
+      <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-2xl bg-linear-to-br from-accent-secondary/20 to-accent/20 text-3xl font-bold text-accent">
         {profile.name
           .split(" ")
           .map((part) => part[0])

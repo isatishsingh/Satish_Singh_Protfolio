@@ -8,8 +8,16 @@ export const education: Education[] = [
     startDate: "Sep 2024",
     endDate: "May 2026",
     details: [
-      "Coursework: Data Structures & Algorithms, OOP, Operating Systems, Computer Networks, DBMS",
-      "459+ DSA problems solved on LeetCode",
+    ],
+  },
+  {
+    degree: "Bachelor of Computer Application (BCA)",
+    institution: "SDJ International College",
+    location: "Surat, India",
+    startDate: "Nov 2021",
+    endDate: "May 2024",
+    details: [
     ],
   },
 ];
+

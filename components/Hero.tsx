@@ -1,8 +1,10 @@
+"use client";
 import Link from "next/link";
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import { contact } from "@/data/contact";
 import { profile } from "@/data/profile";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { useLeetcodeStore } from "@/stores/useLeetcodeStore";
 
 const iconMap = {
   email: Mail,
@@ -12,6 +14,8 @@ const iconMap = {
 } as const;
 
 export function Hero() {
+  const leetCodeData = useLeetcodeStore((state) => state.data);
+  console.log(leetCodeData);
   const socialLinks = contact.links.filter((link) => link.type !== "phone");
 
   return (
@@ -34,7 +38,7 @@ export function Hero() {
             <span className="h-2 w-2 animate-pulse rounded-full bg-accent" />
             Available for opportunities
           </p>
-          <h1 className="max-w-3xl bg-gradient-to-br from-foreground via-foreground to-muted bg-clip-text text-4xl font-bold tracking-tight text-transparent md:text-6xl">
+          <h1 className="max-w-3xl bg-linear-to-br from-foreground via-foreground to-muted bg-clip-text text-4xl font-bold tracking-tight text-transparent md:text-6xl">
             {profile.name}
           </h1>
           <p className="mt-4 text-xl font-medium text-accent md:text-2xl">
@@ -75,11 +79,15 @@ export function Hero() {
           <dl className="mt-6 space-y-4">
             <div className="flex items-center justify-between border-b border-border/70 pb-3">
               <dt className="text-sm text-muted">Focus</dt>
-              <dd className="text-sm font-medium">Full-stack & APIs</dd>
+              <dd className="text-sm font-medium">Software Engineer</dd>
             </div>
             <div className="flex items-center justify-between border-b border-border/70 pb-3">
-              <dt className="text-sm text-muted">LeetCode</dt>
-              <dd className="text-sm font-medium">459+ solved</dd>
+              <dt className="text-sm text-muted">
+                <Link href={leetCodeData?.profileUrl || "#"} target="_blank" rel="noopener noreferrer">
+                  LeetCode
+                </Link>
+                </dt>
+              <dd className="text-sm font-medium">{leetCodeData?.totalSolved || 0} solved</dd>
             </div>
             <div className="flex items-center justify-between">
               <dt className="text-sm text-muted">Location</dt>
