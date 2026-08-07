@@ -21,12 +21,12 @@ export function DsaPreviewClient() {
 
       <div className="glass-card overflow-hidden rounded-3xl">
         {isLoading ? (
-          <div className="animate-pulse p-8">
-            <div className="h-4 w-32 rounded bg-border/70" />
-            <div className="mt-6 h-12 w-48 rounded bg-border/70" />
+          <div className="p-8">
+            <div className="h-4 w-32 rounded stencil" />
+            <div className="mt-6 h-12 w-48 rounded stencil" />
             <div className="mt-8 grid gap-3 sm:grid-cols-3">
               {Array.from({ length: 3 }).map((_, index) => (
-                <div key={index} className="h-20 rounded-xl bg-border/50" />
+                <div key={index} className="h-20 rounded-xl stencil" />
               ))}
             </div>
           </div>

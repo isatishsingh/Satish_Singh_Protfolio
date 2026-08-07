@@ -102,17 +102,17 @@ export function ProgressCard({ data, delay = 0 }: ProgressCardProps) {
 
 export function ProgressCardSkeleton() {
   return (
-    <div className="leetcode-glass-card animate-pulse rounded-2xl p-6">
-      <div className="h-6 w-40 rounded bg-border/70" />
-      <div className="mt-2 h-4 w-56 rounded bg-border/50" />
+    <div className="leetcode-glass-card rounded-2xl p-6">
+      <div className="h-6 w-40 rounded stencil" />
+      <div className="mt-2 h-4 w-56 rounded stencil" />
       <div className="mt-6 space-y-4">
         {Array.from({ length: 3 }).map((_, index) => (
           <div
             key={index}
             className="rounded-xl border border-border/60 bg-surface-elevated/70 p-4"
           >
-            <div className="mb-3 h-4 w-full rounded bg-border/60" />
-            <div className="h-2 rounded-full bg-border/60" />
+            <div className="mb-3 h-4 w-full rounded stencil" />
+            <div className="h-2 rounded-full stencil" />
           </div>
         ))}
       </div>

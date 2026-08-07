@@ -25,7 +25,7 @@ import { StatCard, StatCardSkeleton } from "@/components/StatCard";
 import { ChartsSkeleton } from "@/components/Charts";
 
 const Charts = dynamic(
-  () => import("@/components/Charts").then((module) => module.Charts),
+  () => import("@/components/Charts").then((module) => ({ default: module.Charts })),
   {
     loading: () => <ChartsSkeleton />,
     ssr: false,
@@ -95,12 +95,22 @@ export function LeetcodeDashboard() {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="space-y-6"
     >
-      <div className="grid gap-6 lg:grid-cols-[280px_1fr]">
+      <div className="grid gap-6 lg:grid-cols-[280px_minmax(0,1fr)]">
         <motion.aside
           initial={shouldReduceMotion ? false : { opacity: 0, x: -16 }}
           animate={shouldReduceMotion ? undefined : { opacity: 1, x: 0 }}
           transition={{ duration: 0.45, ease: "easeOut" }}
-          className="leetcode-glass-card sticky top-24 rounded-2xl p-6"
+          className="
+        w-full
+        min-w-0
+        overflow-hidden
+        leetcode-glass-card
+        h-fit
+        rounded-2xl
+        p-6
+        lg:sticky
+        lg:top-24
+    "
         >
           <div className="mx-auto flex h-24 w-24 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-accent-secondary/20 to-accent/20">
             {data.avatar ? (
@@ -130,7 +140,7 @@ export function LeetcodeDashboard() {
             href={data.profileUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary mt-5 w-full justify-center"
+            className="btn-primary mt-5 w-full justify-center text-center"
           >
             View LeetCode Profile
             <ExternalLink size={14} />
@@ -148,26 +158,26 @@ export function LeetcodeDashboard() {
             />
           </div>
 
-          <ul className="mt-6 space-y-2 text-sm text-muted">
+          <ul className="mt-6 space-y-2 text-sm text-muted overflow-hidden">
             {github ? (
-              <li>
+              <li className="truncate">
                 <a
                   href={github.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-accent"
+                  className="hover:text-accent truncate block"
                 >
                   {github.href.replace("https://", "")}
                 </a>
               </li>
             ) : null}
             {linkedin ? (
-              <li>
+              <li className="truncate">
                 <a
                   href={linkedin.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-accent"
+                  className="hover:text-accent truncate block"
                 >
                   {linkedin.href.replace("https://", "")}
                 </a>
@@ -176,7 +186,7 @@ export function LeetcodeDashboard() {
           </ul>
         </motion.aside>
 
-        <div className="space-y-6">
+        <div className="min-w-0 space-y-6">
           <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
             <StatCard
               title="Total Solved"
@@ -243,7 +253,9 @@ export function LeetcodeDashboard() {
             <Charts data={data} />
           </Suspense>
 
-          <Heatmap data={data} delay={0.25} />
+          <div className="mt-6 min-w-0">
+            <Heatmap data={data} delay={0.25} />
+          </div>
 
           <motion.div
             initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
@@ -316,13 +328,13 @@ function DashboardSkeleton() {
   return (
     <div className="space-y-6">
       <div className="grid gap-6 lg:grid-cols-[280px_1fr]">
-        <div className="leetcode-glass-card animate-pulse rounded-2xl p-6">
-          <div className="mx-auto h-24 w-24 rounded-2xl bg-border/70" />
+        <div className="leetcode-glass-card rounded-2xl p-6">
+          <div className="mx-auto h-24 w-24 rounded-2xl stencil" />
           <div className="mt-5 space-y-2">
-            <div className="mx-auto h-5 w-32 rounded bg-border/70" />
-            <div className="mx-auto h-4 w-24 rounded bg-border/50" />
+            <div className="mx-auto h-5 w-32 rounded stencil" />
+            <div className="mx-auto h-4 w-24 rounded stencil" />
           </div>
-          <div className="mt-6 h-10 rounded-xl bg-border/60" />
+          <div className="mt-6 h-10 rounded-xl stencil" />
         </div>
 
         <div className="space-y-6">

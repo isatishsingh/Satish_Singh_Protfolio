@@ -6,8 +6,8 @@ import { patterns } from "@/data/patterns";
 import type { Pattern, SolvedProblem } from "@/types";
 
 function bubbleSize(total: number, min: number, max: number) {
-  const minSize = 72;
-  const maxSize = 132;
+  const minSize = 64;
+  const maxSize = 116;
   if (max === min) return (minSize + maxSize) / 2;
   const ratio = (total - min) / (max - min);
   return minSize + ratio * (maxSize - minSize);
@@ -35,17 +35,16 @@ export function PatternExplorer() {
   const hovered = patterns.find((p) => p.id === hoveredId);
 
   return (
-    <div className="dsa-card p-6">
+    <div className="dsa-card p-4 sm:p-6">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <h3 className="text-lg font-semibold text-foreground">Patterns</h3>
+          <h3 className="text-lg font-semibold text-foreground">Patterns Explorer</h3>
           <p className="mt-1 text-sm text-muted">
-            Click a pattern bubble to reveal your solved problem path with
-            LeetCode links.
+            Click a pattern bubble to reveal your solved problem path with LeetCode links.
           </p>
         </div>
         {hovered && !selected && (
-          <div className="rounded-lg border border-border bg-surface-elevated px-4 py-2 text-sm">
+          <div className="rounded-lg border border-border bg-surface-elevated px-3 py-1.5 text-xs sm:text-sm">
             <span className="font-medium text-foreground">{hovered.name}</span>
             <span className="ml-2 text-muted">
               {hovered.solved}/{hovered.total}
@@ -54,7 +53,7 @@ export function PatternExplorer() {
         )}
       </div>
 
-      <div className="mt-8 flex flex-wrap items-center justify-center gap-4 py-4">
+      <div className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4 py-2">
         {patterns.map((pattern) => {
           const size = bubbleSize(pattern.total, minTotal, maxTotal);
           const progress = pattern.solved / pattern.total;
@@ -73,7 +72,7 @@ export function PatternExplorer() {
               onMouseLeave={() => setHoveredId(null)}
               className={`relative flex shrink-0 flex-col items-center justify-end overflow-hidden rounded-full border-2 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                 isSelected
-                  ? "scale-105 border-accent shadow-[0_0_30px_var(--glow)]"
+                  ? "scale-105 border-accent shadow-[0_0_24px_var(--glow)]"
                   : "border-border hover:border-accent/50 hover:scale-105"
               }`}
               style={{ width: size, height: size }}
@@ -82,9 +81,9 @@ export function PatternExplorer() {
             >
               <div
                 className="absolute inset-x-0 bottom-0 bg-accent/25 transition-all duration-500"
-                style={{ height: `${Math.max(progress * 100, 8)}%` }}
+                style={{ height: `${Math.max(progress * 100, 10)}%` }}
               />
-              <span className="relative z-10 px-2 pb-3 text-center text-[11px] font-medium leading-tight text-foreground">
+              <span className="relative z-10 px-1.5 pb-2.5 text-center text-[10px] sm:text-[11px] font-medium leading-tight text-foreground">
                 {pattern.name}
               </span>
             </button>

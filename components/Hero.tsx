@@ -5,6 +5,7 @@ import { contact } from "@/data/contact";
 import { profile } from "@/data/profile";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { useLeetcodeStore } from "@/stores/useLeetcodeStore";
+import { useTypewriter } from "@/components/typeWriter";
 
 const iconMap = {
   email: Mail,
@@ -15,13 +16,14 @@ const iconMap = {
 
 export function Hero() {
   const leetCodeData = useLeetcodeStore((state) => state.data);
-  console.log(leetCodeData);
+  const isLoading = useLeetcodeStore((state) => state.isLoading);
   const socialLinks = contact.links.filter((link) => link.type !== "phone");
+  const roleText = useTypewriter(profile.role, { typingSpeed: 50, deletingSpeed: 30, pauseTime: 1500 });
 
   return (
     <AnimatedSection
       id="top"
-      className="relative mx-auto max-w-4xl overflow-hidden px-6 pb-12 pt-12 md:pb-16 md:pt-16"
+      className="relative mx-auto max-w-4xl overflow-hidden px-6 py-20 pt-12 md:pb-12 md:pt-16 "
     >
       <div
         className="pointer-events-none absolute -right-20 top-10 h-72 w-72 rounded-full bg-accent/10 blur-3xl"
@@ -42,7 +44,9 @@ export function Hero() {
             {profile.name}
           </h1>
           <p className="mt-4 text-xl font-medium text-accent md:text-2xl">
-            {profile.role}
+            {/* {profile.role} */}
+            {roleText}
+            <span className="animate-pulse duration-700 ml-1 font-normal text-orange-500">|</span>
           </p>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted md:text-lg">
             {profile.intro}
@@ -53,6 +57,9 @@ export function Hero() {
               View Problem Solving
               <ArrowRight size={16} />
             </Link>
+          </div>
+
+          <div className="flex flex-wrap gap-3 mt-4">
             {socialLinks.map((link) => {
               const Icon = iconMap[link.type];
               return (
@@ -62,10 +69,9 @@ export function Hero() {
                   target={link.type === "email" ? undefined : "_blank"}
                   rel={link.type === "email" ? undefined : "noopener noreferrer"}
                   aria-label={link.label}
-                  className="btn-outline"
+                  className="btn-outline gap-2 items-center justify-center p-2"
                 >
                   <Icon size={16} aria-hidden="true" />
-                  {link.label}
                 </a>
               );
             })}
@@ -79,19 +85,30 @@ export function Hero() {
           <dl className="mt-6 space-y-4">
             <div className="flex items-center justify-between border-b border-border/70 pb-3">
               <dt className="text-sm text-muted">Focus</dt>
-              <dd className="text-sm font-medium">Software Engineer</dd>
+              <dd className="text-sm font-medium text-foreground">Full-Stack Engineer</dd>
             </div>
             <div className="flex items-center justify-between border-b border-border/70 pb-3">
               <dt className="text-sm text-muted">
-                <Link href={leetCodeData?.profileUrl || "#"} target="_blank" rel="noopener noreferrer">
+                <Link
+                  href={leetCodeData?.profileUrl || "https://leetcode.com/u/isatishsingh/"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-accent transition-colors"
+                >
                   LeetCode
                 </Link>
-                </dt>
-              <dd className="text-sm font-medium">{leetCodeData?.totalSolved || 0} solved</dd>
+              </dt>
+              <dd className="text-sm font-medium text-foreground">
+                {isLoading ? (
+                  <span className="inline-block h-4 w-20 rounded stencil" />
+                ) : (
+                  `${leetCodeData?.totalSolved ?? 450}+ Solved`
+                )}
+              </dd>
             </div>
             <div className="flex items-center justify-between">
               <dt className="text-sm text-muted">Location</dt>
-              <dd className="text-sm font-medium">Pune, India</dd>
+              <dd className="text-sm font-medium text-foreground">Pune, India</dd>
             </div>
           </dl>
         </div>

@@ -88,12 +88,12 @@ function MetricBox({
 
 export function ContestCardSkeleton() {
   return (
-    <div className="leetcode-glass-card animate-pulse rounded-2xl p-6">
-      <div className="h-4 w-32 rounded bg-border/70" />
-      <div className="mt-3 h-10 w-24 rounded bg-border/70" />
+    <div className="leetcode-glass-card rounded-2xl p-6">
+      <div className="h-4 w-32 rounded stencil" />
+      <div className="mt-3 h-10 w-24 rounded stencil" />
       <div className="mt-6 grid gap-3 sm:grid-cols-2">
-        <div className="h-24 rounded-xl bg-border/50" />
-        <div className="h-24 rounded-xl bg-border/50" />
+        <div className="h-24 rounded-xl stencil" />
+        <div className="h-24 rounded-xl stencil" />
       </div>
     </div>
   );

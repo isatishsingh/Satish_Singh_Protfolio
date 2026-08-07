@@ -17,9 +17,16 @@ export function Education() {
           >
             <div className="flex flex-col gap-1 md:flex-row md:items-start md:justify-between">
               <div>
-                <h3 className="text-lg font-semibold text-foreground md:text-xl">
-                  {item.degree}
-                </h3>
+                <div className="flex flex-wrap items-center gap-3">
+                  <h3 className="text-lg font-semibold text-foreground md:text-xl">
+                    {item.degree}
+                  </h3>
+                  {item.cgpa && (
+                    <span className="inline-flex items-center rounded-full border border-accent/40 bg-accent/10 px-3 py-0.5 font-mono text-xs font-semibold text-accent">
+                      CGPA: {item.cgpa}
+                    </span>
+                  )}
+                </div>
                 <p className="mt-1 font-medium text-accent">{item.institution}</p>
               </div>
               <div className="text-sm text-muted">

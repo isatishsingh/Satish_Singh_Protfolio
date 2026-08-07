@@ -1,18 +1,28 @@
-import type { NavItem } from "@/types";
-import { FileDown } from "lucide-react";
+import {
+  User,
+  Code2,
+  Briefcase,
+  FolderGit2,
+  GraduationCap,
+  Trophy,
+  BrainCircuit,
+  Mail,
+  FileDown,
+} from "lucide-react";
 
-export const navItems: NavItem[] = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Education", href: "#education" },
-  { label: "Problem Solving", href: "/dsa" },
-  { label: "Contact", href: "#contact" },
-  { label: "Resume",
+export const navItems = [
+  { label: "About", href: "#about", icon: User },
+  { label: "Skills", href: "#skills", icon: Code2 },
+  { label: "Experience", href: "#experience", icon: Briefcase },
+  { label: "Projects", href: "#projects", icon: FolderGit2 },
+  { label: "Education", href: "#education", icon: GraduationCap },
+  { label: "Achievements", href: "#achievements", icon: Trophy },
+  { label: "Problem Solving", href: "/dsa", icon: BrainCircuit },
+  { label: "Contact", href: "#contact", icon: Mail },
+  {
+    label: "Resume",
     href: "/resume/Satish_Singh_Resume.pdf",
-    icon: FileDown,
     download: true,
-    iconSize: 16,
+    icon: FileDown,
   },
 ];

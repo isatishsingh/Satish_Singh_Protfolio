@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Satish Singh | Software Engineer",
+  title: "Satish Singh",
   description:
     "Portfolio of Satish Singh — software engineer focused on backend systems, REST APIs, and modern web development.",
 };
@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth dark" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-background font-sans text-foreground antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} overflow-x-hidden min-h-screen bg-background font-sans text-foreground antialiased`}
       >
         <LeetcodeStoreProvider>
           <CustomCursor />

@@ -1,8 +1,9 @@
 import { LucideIcon } from "lucide-react";
+import { IconType } from "react-icons";
 
 export type Profile = {
   name: string;
-  role: string;
+  role: string[];
   intro: string;
   about: string;
 };
@@ -22,6 +23,8 @@ export type Contact = {
 export type Skill = {
   name: string;
   category?: string;
+  icon?: IconType;
+  color?: string;
 };
 
 export type Experience = {
@@ -48,7 +51,13 @@ export type Education = {
   location: string;
   startDate: string;
   endDate: string;
+  cgpa?: string;
   details: string[];
+};
+
+export type Achievement = {
+  title: string;
+  description: string;
 };
 
 export type DifficultyBreakdown = {

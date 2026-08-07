@@ -64,113 +64,119 @@ function ChartsComponent({ data }: ChartsProps) {
   );
 
   return (
-    <div className="grid gap-6 xl:grid-cols-2">
-      <ChartPanel title="Difficulty Distribution" subtitle="Easy vs Medium vs Hard">
-        <ResponsiveContainer width="100%" height={240}>
-          <PieChart>
-            <Pie
-              data={pieData}
-              dataKey="value"
-              nameKey="name"
-              innerRadius={55}
-              outerRadius={88}
-              paddingAngle={3}
-              stroke="transparent"
-            >
-              {pieData.map((entry, index) => (
-                <Cell key={entry.name} fill={PIE_COLORS[index % PIE_COLORS.length]} />
-              ))}
-            </Pie>
-            <Tooltip
-              formatter={(value, name) => [`${value ?? 0}`, String(name)]}
-              contentStyle={tooltipStyle}
-            />
-          </PieChart>
-        </ResponsiveContainer>
-      </ChartPanel>
+    <div className="flex flex-col gap-6 xl:grid xl:grid-cols-2">
+        <ChartPanel title="Difficulty Distribution" subtitle="Easy vs Medium vs Hard">
+          <ResponsiveContainer width="100%" height={240}>
+            <PieChart>
+              <Pie
+                data={pieData}
+                dataKey="value"
+                nameKey="name"
+                innerRadius={55}
+                outerRadius={88}
+                paddingAngle={3}
+                stroke="transparent"
+              >
+                {pieData.map((entry, index) => (
+                  <Cell key={entry.name} fill={PIE_COLORS[index % PIE_COLORS.length]} />
+                ))}
+              </Pie>
+              <Tooltip
+                formatter={(value, name) => [`${value ?? 0}`, String(name)]}
+                contentStyle={tooltipStyle}
+              />
+            </PieChart>
+          </ResponsiveContainer>
+        </ChartPanel>
 
-      <ChartPanel title="Solved vs Unsolved" subtitle="Breakdown by difficulty">
-        <ResponsiveContainer width="100%" height={240}>
-          <BarChart data={barData} barGap={4}>
-            <XAxis
-              dataKey="name"
-              tick={{ fill: "var(--color-muted)", fontSize: 12 }}
-              axisLine={false}
-              tickLine={false}
-            />
-            <YAxis hide />
-            <Tooltip contentStyle={tooltipStyle} />
-            <Bar dataKey="solved" stackId="a" fill="#2dd4bf" radius={[6, 6, 0, 0]} />
-            <Bar dataKey="unsolved" stackId="a" fill="#334155" radius={[6, 6, 0, 0]} />
-          </BarChart>
-        </ResponsiveContainer>
-      </ChartPanel>
+      <div className="min-w-0">
+        <ChartPanel title="Solved vs Unsolved" subtitle="Breakdown by difficulty">
+          <ResponsiveContainer width="100%" height={240} >
+            <BarChart data={barData} barGap={4}>
+              <XAxis
+                dataKey="name"
+                tick={{ fill: "var(--color-muted)", fontSize: 12 }}
+                axisLine={false}
+                tickLine={false}
+              />
+              <YAxis hide />
+              <Tooltip contentStyle={tooltipStyle} />
+              <Bar dataKey="solved" stackId="a" fill="#2dd4bf" radius={[6, 6, 0, 0]} />
+              <Bar dataKey="unsolved" stackId="a" fill="#334155" radius={[6, 6, 0, 0]} />
+            </BarChart>
+          </ResponsiveContainer>
+        </ChartPanel>
+      </div>
 
-      <ChartPanel
-        title="Overall Completion"
-        subtitle={`${data.overallProgress}% of all questions`}
-      >
-        <ResponsiveContainer width="100%" height={240}>
-          <RadialBarChart
-            cx="50%"
-            cy="50%"
-            innerRadius="68%"
-            outerRadius="100%"
-            barSize={14}
-            data={radialData}
-            startAngle={90}
-            endAngle={-270}
-          >
-            <RadialBar
-              background={{ fill: "color-mix(in srgb, var(--color-border) 70%, transparent)" }}
-              dataKey="value"
-              cornerRadius={12}
-            />
-            <text
-              x="50%"
-              y="50%"
-              textAnchor="middle"
-              dominantBaseline="middle"
-              className="fill-foreground text-2xl font-bold"
+      <div className="min-w-0">
+        <ChartPanel
+          title="Overall Completion"
+          subtitle={`${data.overallProgress}% of all questions`}
+        >
+          <ResponsiveContainer width="100%" height={240} >
+            <RadialBarChart
+              cx="50%"
+              cy="50%"
+              innerRadius="68%"
+              outerRadius="100%"
+              barSize={14}
+              data={radialData}
+              startAngle={90}
+              endAngle={-270}
             >
-              {data.overallProgress}%
-            </text>
-          </RadialBarChart>
-        </ResponsiveContainer>
-      </ChartPanel>
+              <RadialBar
+                background={{ fill: "color-mix(in srgb, var(--color-border) 70%, transparent)" }}
+                dataKey="value"
+                cornerRadius={12}
+              />
+              <text
+                x="50%"
+                y="50%"
+                textAnchor="middle"
+                dominantBaseline="middle"
+                className="fill-foreground text-2xl font-bold"
+              >
+                {data.overallProgress}%
+              </text>
+            </RadialBarChart>
+          </ResponsiveContainer>
+        </ChartPanel>
+      </div>
 
-      <ChartPanel
-        title="Acceptance Rate"
-        subtitle={`${data.totalSubmissions.toLocaleString()} total submissions`}
-      >
-        <ResponsiveContainer width="100%" height={240}>
-          <RadialBarChart
-            cx="50%"
-            cy="50%"
-            innerRadius="68%"
-            outerRadius="100%"
-            barSize={14}
-            data={acceptanceData}
-            startAngle={90}
-            endAngle={-270}
-          >
-            <RadialBar
-              background={{ fill: "color-mix(in srgb, var(--color-border) 70%, transparent)" }}
-              dataKey="value"
-              cornerRadius={12}
-            />
-            <text
-              x="50%"
-              y="50%"
-              textAnchor="middle"
-              dominantBaseline="middle"
-              className="fill-foreground text-2xl font-bold"
+      <div className="min-w-0">
+        <ChartPanel
+          title="Acceptance Rate"
+          subtitle={`${data.totalSubmissions.toLocaleString()} total submissions`}
+        >
+          <ResponsiveContainer width="100%" height={240}>
+            <RadialBarChart
+              cx="50%"
+              cy="50%"
+              innerRadius="68%"
+              outerRadius="100%"
+              barSize={14}
+              data={acceptanceData}
+              startAngle={90}
+              endAngle={-270}
             >
-              {data.acceptanceRate}%
-            </text>
-          </RadialBarChart>
-        </ResponsiveContainer>
-      </ChartPanel>
+              <RadialBar
+                background={{ fill: "color-mix(in srgb, var(--color-border) 70%, transparent)" }}
+                dataKey="value"
+                cornerRadius={12}
+              />
+              <text
+                x="50%"
+                y="50%"
+                textAnchor="middle"
+                dominantBaseline="middle"
+                className="fill-foreground text-2xl font-bold"
+              >
+                {data.acceptanceRate}%
+              </text>
+            </RadialBarChart>
+          </ResponsiveContainer>
+        </ChartPanel>
+      </div>
     </div>
   );
 }
@@ -185,7 +191,7 @@ function ChartPanel({
   children: React.ReactNode;
 }) {
   return (
-    <div className="leetcode-glass-card rounded-2xl p-5">
+    <div className="leetcode-glass-card min-w-0 w-full overflow-hidden rounded-2xl p-5">
       <h4 className="font-semibold text-foreground">{title}</h4>
       <p className="mt-1 text-xs text-muted">{subtitle}</p>
       <div className="mt-4">{children}</div>
@@ -201,6 +207,7 @@ const tooltipStyle = {
 };
 
 export const Charts = memo(ChartsComponent);
+export default Charts;
 
 export function ChartsSkeleton() {
   return (
@@ -208,11 +215,11 @@ export function ChartsSkeleton() {
       {Array.from({ length: 4 }).map((_, index) => (
         <div
           key={index}
-          className="leetcode-glass-card animate-pulse rounded-2xl p-5"
+          className="leetcode-glass-card rounded-2xl p-5"
         >
-          <div className="h-5 w-32 rounded bg-border/70" />
-          <div className="mt-2 h-3 w-40 rounded bg-border/50" />
-          <div className="mt-6 h-56 rounded-xl bg-border/40" />
+          <div className="h-5 w-32 rounded stencil" />
+          <div className="mt-2 h-3 w-40 rounded stencil" />
+          <div className="mt-6 h-56 rounded-xl stencil" />
         </div>
       ))}
     </div>

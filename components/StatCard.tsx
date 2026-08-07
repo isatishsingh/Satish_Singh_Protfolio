@@ -56,14 +56,14 @@ export function StatCard({
 
 export function StatCardSkeleton() {
   return (
-    <div className="leetcode-stat-card animate-pulse rounded-2xl border border-border/60 bg-surface/80 p-5 backdrop-blur-xl">
+    <div className="leetcode-stat-card rounded-2xl border border-border/60 bg-surface/80 p-5 backdrop-blur-xl">
       <div className="flex items-start justify-between gap-3">
         <div className="flex-1 space-y-3">
-          <div className="h-4 w-24 rounded bg-border/70" />
-          <div className="h-8 w-20 rounded bg-border/70" />
-          <div className="h-3 w-28 rounded bg-border/50" />
+          <div className="h-4 w-24 rounded stencil" />
+          <div className="h-8 w-20 rounded stencil" />
+          <div className="h-3 w-28 rounded stencil" />
         </div>
-        <div className="h-10 w-10 rounded-xl bg-border/70" />
+        <div className="h-10 w-10 rounded-xl stencil" />
       </div>
     </div>
   );
