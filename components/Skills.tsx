@@ -46,9 +46,10 @@ export function Skills() {
               key={key}
               whileHover={{ scale: 1.03, y: -4 }}
               transition={{ duration: 0.2 }}
-              className="group relative flex items-center h-[62px] rounded-xl border border-slate-700 bg-slate-900/60 px-3.5 py-2 transition-all hover:border-cyan-400/40
-              ">
-              <div className="mr-3">
+              className="group relative flex h-[62px] items-center
+                        rounded-xl border border-slate-200 bg-white px-3.5 py-2 shadow-sm transition-all hover:-translate-y-1 hover:border-cyan-400/50 hover:shadow-[0_8px_24px_rgba(14,165,233,0.12)] 
+                        dark:border-slate-700 dark:bg-slate-900/60 dark:shadow-none dark:hover:border-cyan-400/40 dark:hover:shadow-[0_8px_24px_rgba(34,211,238,0.15)] ">
+              <div className="mr-3 flex h-9 w-9 items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800/70">
                 {Icon && (
                   <Icon
                     className="text-[22px]"
@@ -58,11 +59,11 @@ export function Skills() {
               </div>
 
               <div>
-                <h3 className="text-[17px] font-semibold">
+                <h3 className="text-[17px] font-semibold  text-slate-900 dark:text-white">
                   {skill.name}
                 </h3>
 
-                <p className="text-xs text-slate-400">
+                <p className="text-xs text-slate-500 dark:text-slate-400">
                   {skill.category}
                 </p>
               </div>
