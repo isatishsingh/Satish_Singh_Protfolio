@@ -27,6 +27,7 @@ export function Heatmap({ data, delay = 0 }: HeatmapProps) {
   const hasCalendar = Object.keys(calendar).length > 0;
 
   const { weeks, totalSubmissions } = useMemo(() => {
+
     if (!hasCalendar) {
       return { weeks: [] as number[][], totalSubmissions: 0 };
     }
@@ -71,9 +72,6 @@ export function Heatmap({ data, delay = 0 }: HeatmapProps) {
     return { weeks: grid, totalSubmissions: submissions };
   }, [calendar, hasCalendar]);
 
-  if (!hasCalendar) {
-    return null;
-  }
 
   const monthLabels = useMemo(() => {
     const today = new Date();
@@ -105,6 +103,10 @@ export function Heatmap({ data, delay = 0 }: HeatmapProps) {
 
     return labels;
   }, []);
+
+  if (!hasCalendar) {
+    return null;
+  }
 
   return (
     <motion.div
