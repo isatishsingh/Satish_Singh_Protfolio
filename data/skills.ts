@@ -50,7 +50,7 @@ export const skills: Skill[] = [
   { name: "Node.js", category: "Backend & APIs", icon: SiNodedotjs, color: "#5FA04E" },
   { name: "Express.js", category: "Backend & APIs", icon: SiExpress, color: "#FFFFFF" },
   // { name: "Socket.io", category: "Websocket", icon: SiSocketdotio, color: "#FFFFFF" },
-  { name: "RESTful API", category: "Backend & APIs" },
+  { name: "REST API", category: "Backend & APIs" },
   { name: "Axios", category: "HTTP Client", icon: SiAxios, color: "#2088FF" },
   { name: "Prisma", category: "ORM", icon: SiPrisma, color: "#FFFFFF" },
   // { name: "MVC", category: "Backend & APIs" },
