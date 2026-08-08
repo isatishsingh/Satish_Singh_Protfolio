@@ -50,7 +50,7 @@ export const skills: Skill[] = [
   { name: "Node.js", category: "Backend & APIs", icon: SiNodedotjs, color: "#5FA04E" },
   { name: "Express.js", category: "Backend & APIs", icon: SiExpress, color: "#FFFFFF" },
   // { name: "Socket.io", category: "Websocket", icon: SiSocketdotio, color: "#FFFFFF" },
-  { name: "RESTful API Design", category: "Backend & APIs" },
+  { name: "RESTful API", category: "Backend & APIs" },
   { name: "Axios", category: "HTTP Client", icon: SiAxios, color: "#2088FF" },
   { name: "Prisma", category: "ORM", icon: SiPrisma, color: "#FFFFFF" },
   // { name: "MVC", category: "Backend & APIs" },
@@ -68,6 +68,6 @@ export const skills: Skill[] = [
   { name: "Postman", category: "Tools", icon: SiPostman, color: "#FF6C37" },
   // { name: "Linux", category: "Operating System", icon: FcLinux, color: "#FFC107" },
   { name: "Docker", category: "Tools", icon: SiDocker, color: "#2496ED" },
-  // { name: "Agile / Scrum", category: "Practices", icon: DiScrum, color: "#6DB33F" },
+  { name: "OOPs", category: "Object Oriented Programming", color: "#6DB33F" },
   { name: "DSA", category: "Practices" },
 ];
