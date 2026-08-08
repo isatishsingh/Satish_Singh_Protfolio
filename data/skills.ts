@@ -46,28 +46,28 @@ export const skills: Skill[] = [
   { name: "Tailwind CSS", category: "CSS Framework", icon: SiTailwindcss, color: "#06B6D4" },
   
   // Backend
-  { name: "Spring Boot", category: "Backend & APIs", icon: SiSpringboot, color: "#6DB33F" },
+  // { name: "Spring Boot", category: "Backend & APIs", icon: SiSpringboot, color: "#6DB33F" },
   { name: "Node.js", category: "Backend & APIs", icon: SiNodedotjs, color: "#5FA04E" },
   { name: "Express.js", category: "Backend & APIs", icon: SiExpress, color: "#FFFFFF" },
-  { name: "Socket.io", category: "Websocket", icon: SiSocketdotio, color: "#FFFFFF" },
+  // { name: "Socket.io", category: "Websocket", icon: SiSocketdotio, color: "#FFFFFF" },
   { name: "RESTful API Design", category: "Backend & APIs" },
   { name: "Axios", category: "HTTP Client", icon: SiAxios, color: "#2088FF" },
   { name: "Prisma", category: "ORM", icon: SiPrisma, color: "#FFFFFF" },
-  { name: "MVC Architecture", category: "Backend & APIs" },
+  // { name: "MVC", category: "Backend & APIs" },
   { name: "JWT Auth", category: "Backend & APIs", icon: SiJsonwebtokens, color: "#FB015B" },
-  { name: "Design Patterns", category: "Design Principles" },
+  // { name: "Design Patterns", category: "Design Principles" },
   
   // Database
   { name: "PostgreSQL", category: "Databases", icon: SiPostgresql, color: "#4169E1" },
-  { name: "MongoDB", category: "Databases", icon: SiMongodb, color: "#47A248" },
+  // { name: "MongoDB", category: "Databases", icon: SiMongodb, color: "#47A248" },
   { name: "SQL", category: "Databases", icon: SiSqlite, color: "#FFFFFF" },
   
   // Tools
   { name: "Git & GitHub", category: "Tools", icon: SiGithub, color: "#FFFFFF" },
-  { name: "GitHub Actions", category: "Tools", icon: SiGithubactions, color: "#2088FF" },
+  // { name: "GitHub Actions", category: "Tools", icon: SiGithubactions, color: "#2088FF" },
   { name: "Postman", category: "Tools", icon: SiPostman, color: "#FF6C37" },
-  { name: "Linux", category: "Operating System", icon: FcLinux, color: "#FFC107" },
+  // { name: "Linux", category: "Operating System", icon: FcLinux, color: "#FFC107" },
   { name: "Docker", category: "Tools", icon: SiDocker, color: "#2496ED" },
-  { name: "Agile / Scrum", category: "Practices", icon: DiScrum, color: "#6DB33F" },
+  // { name: "Agile / Scrum", category: "Practices", icon: DiScrum, color: "#6DB33F" },
   { name: "DSA", category: "Practices" },
 ];
