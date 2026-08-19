@@ -2,8 +2,8 @@
 
 import { create } from "zustand";
 import { LEETCODE_USERNAME } from "@/config/leetcode";
-import { fetchLeetCodeDashboardClient } from "@/services/leetcodeApi";
 import type { LeetCodeDashboardData } from "@/types/leetcode";
+import { fetchLeetCodeDashboardClient } from "@/services/leetcodeClient";
 
 type LeetcodeStore = {
   data: LeetCodeDashboardData | null;

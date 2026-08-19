@@ -92,3 +92,85 @@ export type LeetCodeDashboardData = {
   submissionCalendar: Record<string, number>;
   contest: LeetCodeContestData | null;
 };
+
+export type GraphQLProfileResponse = {
+  data?: {
+    allQuestionsCount?: Array<{
+      difficulty: "All" | "Easy" | "Medium" | "Hard";
+      count: number;
+    }>;
+
+    matchedUser?: {
+      username: string;
+
+      socialAccounts?: string[] | null;
+      githubUrl?: string | null;
+
+      contributions?: {
+        points: number;
+        questionCount: number;
+        testcaseCount: number;
+      } | null;
+
+      profile?: {
+        realName?: string | null;
+        websites?: string[] | null;
+        countryName?: string | null;
+        skillTags?: string[] | null;
+        company?: string | null;
+        school?: string | null;
+        starRating?: number | null;
+        aboutMe?: string | null;
+        userAvatar?: string | null;
+        reputation?: number | null;
+        ranking?: number | null;
+      } | null;
+
+      submissionCalendar?: string | null;
+
+      submitStats?: {
+        acSubmissionNum: Array<{
+          difficulty: "All" | "Easy" | "Medium" | "Hard";
+          count: number;
+          submissions: number;
+        }>;
+
+        totalSubmissionNum: Array<{
+          difficulty: "All" | "Easy" | "Medium" | "Hard";
+          count: number;
+          submissions: number;
+        }>;
+      } | null;
+
+      badges?: Array<{
+        id: string;
+        displayName: string;
+        icon: string;
+        creationDate: string;
+      }>;
+
+      upcomingBadges?: Array<{
+        name: string;
+        icon: string;
+      }>;
+
+      activeBadge?: {
+        id: string;
+      } | null;
+    } | null;
+
+    recentSubmissionList?: Array<{
+      title: string;
+      titleSlug: string;
+      timestamp: string;
+      statusDisplay: string;
+      lang: string;
+    }>;
+
+    userContestRanking?: LeetCodeContestData | null;
+  };
+
+  errors?: Array<{
+    message: string;
+  }>;
+};
